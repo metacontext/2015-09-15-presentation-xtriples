@@ -36,13 +36,61 @@
 
 <h1>XTriples</h1>
 
-<h2>RDF-Gewinnung und Visualisierung</h2>
+<h2>Semantische Aussagen aus XML</h2>
 
 <h3><strong>Torsten Schrade (Mainz) | 15.09.2015</strong></h3>
 </div>
       <div class='step' >
     
-<h3>Semantische Modellierung</h3>
+<h2>Gliederung</h2>
+
+<ol>
+<li>TEI-XML und RDF – Implizite und explizite Semantik</li>
+<li>Ein Ontologiebeispiel für &lt;correspDesc&gt;</li>
+<li>XTriples in 3 Minuten</li>
+<li>Visualisierungsbeispiele für semantische Daten</li>
+</ol>
+</div>
+      <div class='step' >
+    
+<p>Beispielhafte Fragestellungen, die mit semantischen Technologien 
+beantwortet werden können</p>
+</div>
+      <div class='step' >
+    
+<h2>Implizite und explizite Semantik</h2>
+
+<pre>
+<code class="xml">
+&lt;correspDesc key="686" cs:source="#SOE20"&gt;
+    &lt;correspAction type="sent"&gt;
+        &lt;persName ref="http://d-nb.info/gnd/118540238"&gt;
+            Johann Wolfgang von Goethe
+        &lt;/persName&gt;
+        &lt;placeName ref="http://www.geonames.org/2812482"&gt;
+            Weimar
+        &lt;/placeName&gt;
+        &lt;date when="1793-12-05"&gt;5.12.1793&lt;/date&gt;
+    &lt;/correspAction&gt;
+    &lt;correspAction type="received"&gt;
+        &lt;persName ref="http://d-nb.info/gnd/118805193"&gt;
+            Soemmerring, Samuel Thomas
+        &lt;/persName&gt;
+        &lt;placeName ref="http://www.geonames.org/2874225"&gt;
+            Mainz
+        &lt;/placeName&gt;
+    &lt;/correspAction&gt;
+&lt;/correspDesc&gt;
+</code>
+</pre>
+</div>
+      <div class='step' >
+    
+<p>Hier das Ganze als RDF Statements</p>
+</div>
+      <div class='step' >
+    
+<h2>Ontologie-Beispiel</h2>
 
 <ol class="steps">
 <li><a href="#/step-2/#step1" id="step1">1</a></li>
@@ -66,11 +114,11 @@
 </div>
       <div class='step' >
     
-<h3>Test</h3>
+<h2>XTriples in 3 Minuten</h2>
 </div>
       <div class='step' >
     
-<h3>yet another</h3>
+<h2>Visualisierungsbeispiele</h2>
 
       </div>
     <script src="js/impress.js"></script>

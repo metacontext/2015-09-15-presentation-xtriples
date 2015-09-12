@@ -10,11 +10,13 @@ body {
 
 body {
 	min-height: 740px;
+/*
 	background: -moz-radial-gradient(50% 50%, farthest-side, #fff, #efefef);
 	background: -webkit-gradient(radial, 50% 50%, 250, 50% 50%, 750, from(#fff), to(#efefef));
 	background: -ms-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
 	background: -o-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
 	background: radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
+*/
 	pointer-events: none;	/* Fix Body Click */
 }
 
@@ -103,8 +105,8 @@ table {
 }
 
 code {
-  font-size: 30px;
-  line-height: 36px;
+	font-size: 36px;
+	line-height: 36px;
 }
 
 a {
@@ -222,6 +224,20 @@ sup {
 
 sub { 
   bottom: -0.25em; 
+}
+
+/* CUSTOM STYLES */
+
+/* HIGHLIGHT.JS */
+
+pre code {
+	background-color: inherit;
+	padding: 0 2em;
+}
+
+code {
+	font-size: 24px;
+	line-height: 30px;
 }
 
 /* GREULER */
