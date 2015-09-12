@@ -236,6 +236,7 @@ pre code {
 }
 
 code {
+	font-family: monospace;
 	font-size: 24px;
 	line-height: 30px;
 }
@@ -243,74 +244,74 @@ code {
 /* GREULER */
 
 text {
-    font-size: 13px;
+	font-size: 13px;
 }
 
 .outer-top-right {
-    font-size: 11px;
-    fill: #000;
+	font-size: 11px;
+	fill: #000;
 }
 
 #greuler-n836af52d06d5e8 text,
 #greuler-k6c1b87b6d8371 text,
 #greuler-xe3065f1bc60cc text {
-    fill: #E74C3C;
+	fill: #E74C3C;
 }
 
 .steps, .legend {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
 }
 
 .steps li {
-    display: inline-block;
-    margin-right: 1em;
+	display: inline-block;
+	margin-right: 1em;
 }
 
 .steps a {
-    border: 1px solid #0EA0CE;
-    border-radius: 50%;
-    display: inline-block;
-    height: 2em;
-    line-height: 2em;
-    margin: 0;
-    text-align: center;
-    width: 2em;
-    text-decoration: none;
+	border: 1px solid #0EA0CE;
+	border-radius: 50%;
+	display: inline-block;
+	height: 2em;
+	line-height: 2em;
+	margin: 0;
+	text-align: center;
+	width: 2em;
+	text-decoration: none;
 }
 
 .steps a:hover, .current {
-    background: #0EA0CE;
-    color: #FFF;
+	background: #0EA0CE;
+	color: #FFF;
 }
 
 .legend {
-    text-align: right;
+	text-align: right;
 }
 
 .legend li {
-    display: inline-block;
+	display: inline-block;
 }
 
 .legend li:before {
-    position: relative;
-    top: 0.1em;
-    content:"\25A0";
-    padding: 0.2em;
-    font-size: 2em;
-    line-height: 1.2em;
+	position: relative;
+	top: 0.1em;
+	content:"\25A0";
+	padding: 0.2em;
+	font-size: 2em;
+	line-height: 1.2em;
 }
 
 #gnd:before {
-    color: #2980B9;
+	color: #2980B9;
 }
 
 #cs:before {
-    color: #F44336;
+	color: #F44336;
 }
 
 #geonames:before {
-    color: #4CAF50
+	color: #4CAF50
 }

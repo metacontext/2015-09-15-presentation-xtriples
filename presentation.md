@@ -12,19 +12,14 @@ author: Torsten Schrade
 
 ## Gliederung
 
-1. TEI-XML und RDF – Implizite und explizite Semantik
-2. Ein Ontologiebeispiel für &lt;correspDesc&gt;
+1. Implizite und explizite Semantik
+2. Ontologiebeispiel für &lt;correspDesc&gt;
 3. XTriples in 3 Minuten
-4. Visualisierungsbeispiele für semantische Daten
+4. Visualisierungsbeispiele
 
 ---
 
-Beispielhafte Fragestellungen, die mit semantischen Technologien 
-beantwortet werden können
-
----
-
-## Implizite und explizite Semantik
+## Implizite Semantik (TEI-XML)
 
 <pre>
 <code class="xml">
@@ -52,7 +47,39 @@ beantwortet werden können
 
 ---
 
-Hier das Ganze als RDF Statements
+## Explizite Semantik (RDF)
+
+<form>
+	<textarea class="code" name="code" id="code2">
+
+	PREFIX v: &lt;http://www.beispiel.verben#&gt;
+
+	Goethe 			v:ist				Person ;
+					v:sendet			Brief .
+
+	Brief			v:datiert			1793 ;
+					v:gesendet_aus		Weimar .
+
+	Weimar			v:ist				Stadt .
+
+	Soemmering		v:ist				Person ;
+					v:empfaengt			Brief .
+
+	Brief			v:empfangen_in		Mainz .
+	</textarea>
+</form>
+
+---
+
+## Semantische Fragestellungen
+
+* Wer korrespondiert mit wem?
+* Wieviele Briefe sind von Dichtern/Wissenschaftlern/etc.?
+* Welche Personen mit welchen Berufen schrieben an Carl Maria von Weber?
+* In welcher Stadt wurden die meisten Briefe verschickt/empfangen?
+* Zwischen welchen Städten wurden Briefe verschickt?
+* Wer war in welcher Stadt und wann?
+* Wo war Person X im Jahr Y?
 
 ---
 
@@ -82,3 +109,40 @@ Hier das Ganze als RDF Statements
 ---
 
 ## Visualisierungsbeispiele
+
+---
+
+## Stuff
+
+<form>
+	<textarea class="code" name="code" id="code1">
+
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+
+PREFIX owltime: &lt;http://www.w3.org/2006/time#&gt;
+
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX rel: &lt;http://purl.org/vocab/relationship/&gt;
+
+PREFIX geo: &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
+PREFIX gn: &lt;http://www.geonames.org/ontology#&gt;
+
+PREFIX gndo: &lt;http://d-nb.info/standards/elementset/gnd#&gt;
+
+PREFIX cd: &lt;http://www.tei-c.org/ns/1.0/correspDesc#&gt;
+
+	</textarea>
+</form>
+
+<script>
+	var editor1 = CodeMirror.fromTextArea(document.getElementById("code1"), {
+		mode: "application/sparql-query",
+		matchBrackets: true
+	});
+	var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+		mode: "application/sparql-query",
+		matchBrackets: true
+	});
+</script>
