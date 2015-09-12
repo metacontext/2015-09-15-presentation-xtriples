@@ -9,28 +9,37 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <link rel="shortcut icon" href="css/favicon.png" />
     <link rel="apple-touch-icon" href="css/apple-touch-icon.png" />
-    <!-- Code Prettifier: -->
-<link href="css/highlight.css" type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 
+    <!-- code highlighting -->
+    <link href="css/highlight.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- theme stylesheet -->
     <link href="css/style.css" rel="stylesheet" />
-<!-- jquery -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
-<!-- greuler -->
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://maurizzzio.github.io/greuler/scripts/lib/cola.v3.js"></script>
-<script src="http://maurizzzio.github.io/greuler/greuler.min.js"></script>
+	<!-- jquery -->
+	<script type="text/javascript" src="js/jquery.1.8.min.js"></script>
 
+	<!-- greuler -->
+	<script src="js/d3.v3.min.js"></script>
+	<script src="js/cola.v3.js"></script>
+	<script src="js/greuler.min.js"></script>
+
+	<!-- codemirror for sparql -->
+	<link rel="stylesheet" href="css/codemirror.css" />
+	<link rel="stylesheet" href="css/sparqlcolors.css" />
+	<script src="js/codemirror.js"></script>
+	<script src="js/matchbrackets.js"></script>
+	<script src="js/sparql.js"></script>
   </head>
 
   <body>
-  <div class="fallback-message">
-  <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
-  <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+    <div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
   </div>
     <div id="impress">
-    <div class='step' >
+    <div class="step" >
     
 <h3>Briefeditionen im Semantic Web</h3>
 
@@ -40,25 +49,20 @@
 
 <h3><strong>Torsten Schrade (Mainz) | 15.09.2015</strong></h3>
 </div>
-      <div class='step' >
+      <div class="step" >
     
 <h2>Gliederung</h2>
 
 <ol>
-<li>TEI-XML und RDF – Implizite und explizite Semantik</li>
-<li>Ein Ontologiebeispiel für &lt;correspDesc&gt;</li>
+<li>Implizite und explizite Semantik</li>
+<li>Ontologiebeispiel für &lt;correspDesc&gt;</li>
 <li>XTriples in 3 Minuten</li>
-<li>Visualisierungsbeispiele für semantische Daten</li>
+<li>Visualisierungsbeispiele</li>
 </ol>
 </div>
-      <div class='step' >
+      <div class="step" >
     
-<p>Beispielhafte Fragestellungen, die mit semantischen Technologien 
-beantwortet werden können</p>
-</div>
-      <div class='step' >
-    
-<h2>Implizite und explizite Semantik</h2>
+<h2>Implizite Semantik (TEI-XML)</h2>
 
 <pre>
 <code class="xml">
@@ -84,11 +88,45 @@ beantwortet werden können</p>
 </code>
 </pre>
 </div>
-      <div class='step' >
+      <div class="step" >
     
-<p>Hier das Ganze als RDF Statements</p>
+<h2>Explizite Semantik (RDF)</h2>
+
+<form>
+    <textarea class="code" name="code" id="code2">
+
+    PREFIX v: &lt;http://www.beispiel.verben#&gt;
+
+    Goethe          v:ist               Person ;
+                    v:sendet            Brief .
+
+    Brief           v:datiert           1793 ;
+                    v:gesendet_aus      Weimar .
+
+    Weimar          v:ist               Stadt .
+
+    Soemmering      v:ist               Person ;
+                    v:empfaengt         Brief .
+
+    Brief           v:empfangen_in      Mainz .
+    </textarea>
+</form>
 </div>
-      <div class='step' >
+      <div class="step" >
+    
+<h2>Semantische Fragestellungen</h2>
+
+<ul>
+<li>Wer korrespondiert mit wem?</li>
+<li>Wieviele Briefe sind von Dichtern/Wissenschaftlern/etc.?</li>
+<li>Welche Personen mit welchen Berufen schrieben an Carl Maria von Weber?</li>
+<li>In welcher Stadt wurden die meisten Briefe verschickt/empfangen?</li>
+<li>Zwischen welchen Städten wurden Briefe verschickt?</li>
+<li>Wer war in welcher Stadt und wann?</li>
+<li>Wo war Person X im Jahr Y?</li>
+</ul>
+</div>
+      <div class="step" >
     
 <h2>Ontologie-Beispiel</h2>
 
@@ -112,15 +150,53 @@ beantwortet werden können</p>
 
 <script src="js/model.js" type="text/javascript"></script>
 </div>
-      <div class='step' >
+      <div class="step" >
     
 <h2>XTriples in 3 Minuten</h2>
 </div>
-      <div class='step' >
+      <div class="step" >
     
 <h2>Visualisierungsbeispiele</h2>
+</div>
+      <div class="step" >
+    
+<h2>Stuff</h2>
+
+<form>
+    <textarea class="code" name="code" id="code1">
+
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+
+PREFIX owltime: &lt;http://www.w3.org/2006/time#&gt;
+
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+PREFIX rel: &lt;http://purl.org/vocab/relationship/&gt;
+
+PREFIX geo: &lt;http://www.w3.org/2003/01/geo/wgs84_pos#&gt;
+PREFIX gn: &lt;http://www.geonames.org/ontology#&gt;
+
+PREFIX gndo: &lt;http://d-nb.info/standards/elementset/gnd#&gt;
+
+PREFIX cd: &lt;http://www.tei-c.org/ns/1.0/correspDesc#&gt;
+
+    </textarea>
+</form>
+
+<script>
+    var editor1 = CodeMirror.fromTextArea(document.getElementById("code1"), {
+        mode: "application/sparql-query",
+        matchBrackets: true
+    });
+    var editor2 = CodeMirror.fromTextArea(document.getElementById("code2"), {
+        mode: "application/sparql-query",
+        matchBrackets: true
+    });
+</script>
 
       </div>
+    </div>
     <script src="js/impress.js"></script>
     <script>impress().init();</script>
   </body>
