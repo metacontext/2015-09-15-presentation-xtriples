@@ -5,12 +5,58 @@ author: Torsten Schrade
 
 ### Briefeditionen im Semantic Web
 # XTriples
-## RDF-Gewinnung und Visualisierung
+## Semantische Aussagen aus XML
 ### __Torsten Schrade (Mainz) | 15.09.2015__
 
 ---
 
-### Semantische Modellierung
+## Gliederung
+
+1. TEI-XML und RDF – Implizite und explizite Semantik
+2. Ein Ontologiebeispiel für &lt;correspDesc&gt;
+3. XTriples in 3 Minuten
+4. Visualisierungsbeispiele für semantische Daten
+
+---
+
+Beispielhafte Fragestellungen, die mit semantischen Technologien 
+beantwortet werden können
+
+---
+
+## Implizite und explizite Semantik
+
+<pre>
+<code class="xml">
+&lt;correspDesc key="686" cs:source="#SOE20"&gt;
+	&lt;correspAction type="sent"&gt;
+		&lt;persName ref="http://d-nb.info/gnd/118540238"&gt;
+			Johann Wolfgang von Goethe
+		&lt;/persName&gt;
+		&lt;placeName ref="http://www.geonames.org/2812482"&gt;
+			Weimar
+		&lt;/placeName&gt;
+		&lt;date when="1793-12-05"&gt;5.12.1793&lt;/date&gt;
+	&lt;/correspAction&gt;
+	&lt;correspAction type="received"&gt;
+		&lt;persName ref="http://d-nb.info/gnd/118805193"&gt;
+			Soemmerring, Samuel Thomas
+		&lt;/persName&gt;
+		&lt;placeName ref="http://www.geonames.org/2874225"&gt;
+			Mainz
+		&lt;/placeName&gt;
+	&lt;/correspAction&gt;
+&lt;/correspDesc&gt;
+</code>
+</pre>
+
+---
+
+Hier das Ganze als RDF Statements
+
+---
+
+## Ontologie-Beispiel
 
 <ol class="steps">
 <li><a href="#/step-2/#step1" id="step1">1</a></li>
@@ -31,8 +77,8 @@ author: Torsten Schrade
 
 ---
 
-### Test
+## XTriples in 3 Minuten
 
 ---
 
-### yet another
+## Visualisierungsbeispiele
