@@ -7,3 +7,5 @@ der AG Elektronisches Publizieren der Union der Deutschen Akademien der Wissensc
 ### HTML Version der Präsentation
 
 http://metacontext.github.io/presentation-correspsearch-xtriples/
+
+Alle Inhalte [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) - Torsten Schrade
