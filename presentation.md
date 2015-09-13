@@ -3,7 +3,7 @@ title: Briefeditionen im Semantic Web
 author: Torsten Schrade
 ---
 
-### Briefeditionen im Semantic Web
+### Digitale Briefeditionen im Semantic Web
 # XTriples
 ## Semantische Aussagen aus XML
 ### __Torsten Schrade (Mainz) | 15.09.2015__
@@ -286,12 +286,15 @@ gndo:118540238 rdf:type cd:Sender .
 </g>
 </svg>
 
+[Visualisierung aufrufen](http://xtriples.spatialhumanities.de/extract.xql?configuration=http://xtriples.spatialhumanities.de/examples/dh/correspSearchPersons.xml&format=svg "Zur Visualisierung von Wer schreibt Wem")
+
 ---
 
 ## Goethe: Briefnetzwerk (SVG)
 
-[Netzwerkvisualisierung](http://xtriples.spatialhumanities.de/extract.xql?configuration=http://xtriples.spatialhumanities.de/examples/dh/correspSearchLetters.xml&format=svg
- "SVG aufrufen")
+![Grafik zur Netzwerkvisualisierung](img/network.png "Visualisierung von Goethes Briefnetzwerk")
+
+[Visualisierung aufrufen](http://xtriples.spatialhumanities.de/extract.xql?configuration=http://xtriples.spatialhumanities.de/examples/dh/correspSearchLetters.xml&format=svg "Zur Visualisierung von Goethes Briefnetzwerk")
 
 ---
 
