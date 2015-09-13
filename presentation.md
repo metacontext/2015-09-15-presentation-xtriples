@@ -3,10 +3,10 @@ title: Briefeditionen im Semantic Web
 author: Torsten Schrade
 ---
 
-### Digitale Briefeditionen im Semantic Web
-# XTriples
-## Semantische Aussagen aus XML
-### __Torsten Schrade (Mainz) | 15.09.2015__
+### Workhshop der AG Elektronisches Publizieren | 15.09.2015
+# Digitale Briefeditionen im Semantic Web
+## XTriples - Semantische Aussagen aus XML
+### __Torsten Schrade (Mainz) | <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg" alt="Twitter" width="30" /> [@digicademy](https://twitter.com/digicademy "Die Digitale Akademie aut Twitter") |  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Twitter" width="30" /> [digicademy](https://github.com/digicademy "Die Digitale Akademie aut GitHub")__
 
 ---
 
@@ -67,7 +67,6 @@ author: Torsten Schrade
 
 <form>
 	<textarea class="code" name="code" id="code1">
-
 	PREFIX v: &lt;http://www.beispiel.verben#&gt;
 
 	Goethe 			v:ist				Person ;
@@ -84,8 +83,6 @@ author: Torsten Schrade
 					v:empfaengt			Brief .
 
 	Brief			v:empfangen_in		Mainz .
-
-	[...]
 	</textarea>
 </form>
 
