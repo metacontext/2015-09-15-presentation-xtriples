@@ -14,3 +14,5 @@ http://metacontext.github.io/presentation-correspsearch-xtriples/
 ### Daten und Visualisierungen im gh-pages Branch
 
 https://github.com/metacontext/presentation-correspsearch-xtriples/tree/gh-pages
+
+Alle Inhalte [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) - Torsten Schrade
