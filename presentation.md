@@ -146,6 +146,12 @@ author: Torsten Schrade
 
 ## Ziel des Webservice
 
+1. Gewinnung von RDF Statements aus beliebigem XML
+2. Basierend auf einer einfachen Konfiguration
+3. Einbeziehung beliebiger weiterer Ressourcen und Collections
+4. Flexible Rückgabeformate
+5. RESTful - Kommunikation vollständig über HTTP
+
 ---
 
 ## Funktionsweise
@@ -179,12 +185,14 @@ gndo:118540238 rdf:type cd:Sender .
 
 ## Extraktionsergebnisse
 
-Extraktion aller Korrespondenzdaten via correspSearch API unter Einbeziehung der RDF Schnittstellen von GND und Geonames:
+Extraktion aller Korrespondenzdaten via API unter Einbeziehung der RDF Schnittstellen von GND und Geonames:
 
-* __Gesamt:__ 56.990
-* __correspSearch:__ 
-* __GND__:
-* __Geonames__:
+<table style="margin-top: 1em; border: 1px solid #000">
+<tr><td><strong>Statements gesamt</strong></td><td>56.990</td></tr>
+<tr><td><strong>correspSearch Ressourcen</strong></td><td>15.095</td></tr>
+<tr><td><strong>GND Ressourcen</strong></td><td>6.015</td></tr>
+<tr><td><strong>Geonames Ressourcen</strong></td><td>151</td></tr>
+</table>
 
 ---
 
@@ -327,6 +335,15 @@ Referenten		v:danken		Publikum .
 
 ---
 
-## Abspann
+## Stuff used
 
-Stuff used:
+* [Impress.js](https://github.com/impress/impress.js) (Präsentation)
+* [mdpress](https://github.com/egonSchiele/mdpress) (Markdown für Impress)
+* [sgvizler](http://dev.data2000.no/sgvizler/) (Visualisierungen für RDF)
+* [greuler](http://maurizzzio.github.io/greuler/#/) (Graph Visualisierung)
+* [hightlight.js](https://highlightjs.org/) (Syntax Highlighting)
+* [CodeMirror](https://codemirror.net/) (SPARQL Syntax Highlighting)
+
+Quelldateien &amp; Daten: http://bit.ly/1OpViFw
+
+Lizenz: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) (Torsten Schrade)
