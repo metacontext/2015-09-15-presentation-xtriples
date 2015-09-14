@@ -67,7 +67,7 @@ author: Torsten Schrade
 
 <form>
 	<textarea class="code" name="code" id="code1">
-	PREFIX v: &lt;http://www.beispiel.verben#&gt;
+	PREFIX v: &lt;http://beispiel.verb#&gt;
 
 	Goethe 			v:ist				Person ;
 					v:sendet			Brief .
@@ -144,6 +144,10 @@ author: Torsten Schrade
 
 ---
 
+## Ziel des Webservice
+
+---
+
 ## Funktionsweise
 
 ![Grafik zur Funktionsweise](img/structure.png "Funktionsweise des Webservice")
@@ -170,6 +174,17 @@ author: Torsten Schrade
 #### Ergebnis ####
 gndo:118540238 rdf:type cd:Sender .
 </code></pre>
+
+---
+
+## Extraktionsergebnisse
+
+Extraktion aller Korrespondenzdaten via correspSearch API unter Einbeziehung der RDF Schnittstellen von GND und Geonames:
+
+* __Gesamt:__ 56.990
+* __correspSearch:__ 
+* __GND__:
+* __Geonames__:
 
 ---
 
@@ -295,13 +310,15 @@ gndo:118540238 rdf:type cd:Sender .
 
 ---
 
-## Goethe: Berufe
-
----
-
 ## Kartenvisualisierung
 
+![Kartenvisualisierung](img/map.png "Visualisierung von Korrespondenznetzwerken")
+
+[Visualisierung aufrufen](viz/map.html "Zur Kartenvisualisierung")
+
 ---
+
+## F I N I S
 
 <pre><code class="xml">
 Publikum		v:war			aufmerksam .
