@@ -112,7 +112,7 @@
 
 <form>
     <textarea class="code" name="code" id="code1">
-    PREFIX v: &lt;http://www.beispiel.verben#&gt;
+    PREFIX v: &lt;http://beispiel.verb#&gt;
 
     Goethe          v:ist               Person ;
                     v:sendet            Brief .
@@ -192,6 +192,10 @@
 </div>
       <div class="step" >
     
+<h2>Ziel des Webservice</h2>
+</div>
+      <div class="step" >
+    
 <h2>Funktionsweise</h2>
 
 <p><img src="img/structure.png" alt="Grafik zur Funktionsweise" title="Funktionsweise des Webservice"></p>
@@ -218,6 +222,19 @@
 #### Ergebnis ####
 gndo:118540238 rdf:type cd:Sender .
 </code></pre>
+</div>
+      <div class="step" >
+    
+<h2>Extraktionsergebnisse</h2>
+
+<p>Extraktion aller Korrespondenzdaten via correspSearch API unter Einbeziehung der RDF Schnittstellen von GND und Geonames:</p>
+
+<ul>
+<li><strong>Gesamt:</strong> 56.990</li>
+<li><strong>correspSearch:</strong> </li>
+<li><strong>GND</strong>:</li>
+<li><strong>Geonames</strong>:</li>
+</ul>
 </div>
       <div class="step" >
     
@@ -343,14 +360,16 @@ gndo:118540238 rdf:type cd:Sender .
 </div>
       <div class="step" >
     
-<h2>Goethe: Berufe</h2>
-</div>
-      <div class="step" >
-    
 <h2>Kartenvisualisierung</h2>
+
+<p><img src="img/map.png" alt="Kartenvisualisierung" title="Visualisierung von Korrespondenznetzwerken"></p>
+
+<p><a href="viz/map.html" title="Zur Kartenvisualisierung">Visualisierung aufrufen</a></p>
 </div>
       <div class="step" >
     
+<h2>F I N I S</h2>
+
 <pre><code class="xml">
 Publikum        v:war           aufmerksam .
 Referenten      v:danken        Publikum .

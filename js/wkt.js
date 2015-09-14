@@ -1,8 +1,8 @@
-function dynamicQuery (containerID, filter) {
-	var queryString = "SELECT DISTINCT ?WKT ?name WHERE { ?letter cd:sentFrom ?sentFrom . ?letter cd:sentTo ?sentTo . " + filter + " ?sentFrom geo:lat ?latitudeSentFrom ; geo:long ?longitudeSentFrom . ?sentTo geo:lat ?latitudeSentTo ; geo:long ?longitudeSentTo . BIND (concat('POLYGON((',str(?longitudeSentFrom),' ',str(?latitudeSentFrom),',',str(?longitudeSentTo),' ',str(?latitudeSentTo),'))') AS ?WKT) . BIND (CONCAT(str(?nameSentFrom),' - ',str(?nameSentTo)) AS ?name) . } LIMIT 469",
+function dynamicQuery (containerID, endpoint) {
+	var queryString = "";
 	Q = new sgvizler.Query();
 	Q.query(queryString)
-		.endpointURL("http://t.spatialhumanities.de/openrdf-sesame/repositories/correspSearch-owlim")
+		.endpointURL(endpoint)
 		.chartFunction("sgvizler.visualization.MapWKT")
 		.draw(containerID);
 }
@@ -10,34 +10,34 @@ $(function() {
 	$("#wkt_select").click(function() {
 		$( "#wkt" ).empty();
 		if ($("#correspondent").val() == "alle") {
-			filter = "";
+			endpoint = "../srj/map.all.srj"
 		} else {
-			filter = "?letter cd:communicating <" + $("#correspondent").val() + "> .";
+			endpoint = $("#correspondent").val();
 		}
-		dynamicQuery('wkt', filter);
-	});
-	$("#wkt_soemmering").click(function() {
-		$( "#wkt" ).empty();
-		filter = "FILTER (regex(str(?letter), '^http://correspsearch.bbaw.de/id/SOE20/')) ."; 
-		dynamicQuery('wkt', filter);
+		dynamicQuery('wkt', endpoint);
 	});
 	$("#wkt_alle").click(function() {
 		$( "#wkt" ).empty();
-		filter = "";
-		dynamicQuery('wkt', filter);
+		endpoint = "../srj/map.all.srj"
+		dynamicQuery('wkt', endpoint);
 	});
-	$("#wkt_17").click(function() {
+	$("#wkt_soemmering").click(function() {
 		$( "#wkt" ).empty();
-		filter = "?letter owltime:xsdDateTime ?date . FILTER (regex(str(?date), '^17')) .";
-		dynamicQuery('wkt', filter);
+		endpoint = "../srj/map.soemmering.srj"
+		dynamicQuery('wkt', endpoint);
 	});
 	$("#wkt_18").click(function() {
 		$( "#wkt" ).empty();
-		filter = "?letter owltime:xsdDateTime ?date . FILTER (regex(str(?date), '^18')) .";
-		dynamicQuery('wkt', filter);
+		endpoint = "../srj/map.18.srj"
+		dynamicQuery('wkt', endpoint);
+	});
+	$("#wkt_19").click(function() {
+		$( "#wkt" ).empty();
+		endpoint = "../srj/map.19.srj"
+		dynamicQuery('wkt', endpoint);
 	});
 	$( document ).ajaxSend(function() {
-		$("#wkt").css("background", "url(../images/spinner.gif) center no-repeat");
+		$("#wkt").css("background", "url(../img/spinner.gif) center no-repeat");
 	});
 	$( document ).ajaxComplete(function() {
 		$("#wkt").css("background", "none");
