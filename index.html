@@ -47,14 +47,15 @@
 
 <h2>Der XTriples Webservice – <br/> Semantische Aussagen aus XML</h2>
 
-<h3><strong>Torsten Schrade (Mainz) | <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg" alt="Twitter" width="30" /> <a href="https://twitter.com/digicademy" title="Die Digitale Akademie aut Twitter">@digicademy</a> |  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Twitter" width="30" /> <a href="https://github.com/digicademy" title="Die Digitale Akademie aut GitHub">digicademy</a></strong></h3>
+<h3><strong>Torsten Schrade (Mainz) | <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg" alt="Twitter" width="30" /> <a href="https://twitter.com/digicademy" title="Die Digitale Akademie aut Twitter">@digicademy</a> |  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Twitter" width="30" /> <a href="https://github.com/digicademy" title="Die Digitale Akademie aut GitHub">metacontext</a></strong></h3>
 </div>
       <div class="step" >
     
 <h2>Gliederung</h2>
 
 <ol>
-<li>Implizite und explizite Semantik</li>
+<li>Semantische Fragestellungen</li>
+<li>Implizite und explizite Semantik (XML vs. RDF)</li>
 <li>Beispielmodellierung für &lt;correspDesc&gt;</li>
 <li>XTriples in 3 Minuten</li>
 <li>Visualisierungsbeispiele</li>
@@ -62,20 +63,42 @@
 </div>
       <div class="step" >
     
-<h2>Implizite und explizite Semantik</h2>
-</div>
-      <div class="step" >
-    
 <h2>Semantische Fragestellungen</h2>
 
 <ul>
 <li>Wer korrespondiert mit wem?</li>
-<li>Wieviele Briefe sind von Dichtern/Wissenschaftlern/etc.?</li>
-<li>Welche Berufsgruppen schrieben an Carl Maria von Weber?</li>
-<li>In welcher Stadt wurden die meisten Briefe verschickt/empfangen?</li>
-<li>Zwischen welchen Städten wurden Briefe verschickt?</li>
-<li>Wer war in welcher Stadt und wann?</li>
+<li>Welche Briefe sind von Dichtern/Wissenschaftlern/etc.?</li>
+<li>Wer verschickte zwischen welchen Städten Briefe?</li>
 <li>Wo war Person X im Jahr Y?</li>
+</ul>
+</div>
+      <div class="step" >
+    
+<h2>Implizite und explizite Semantik</h2>
+</div>
+      <div class="step" >
+    
+<h2>Explizite Semantik (RDF)</h2>
+
+<pre>
+<code class="xml">
+    <span class="subject-color">Goethe</span>           <span class="predicate-color">ist</span>                <span class="object-color">Person</span> ;
+                     <span class="predicate-color">sendet</span>             <span class="object-color">Brief</span> .
+
+    <span class="subject-color">Brief</span>            <span class="predicate-color">datiert</span>            <span class="object-color">1793</span> ;
+                     <span class="predicate-color">gesendet_aus</span>       <span class="object-color">Weimar</span> .
+
+    <span class="subject-color">Weimar</span>           <span class="predicate-color">ist</span>                <span class="object-color">Stadt</span> ;
+                     <span class="predicate-color">hat_Laengengrad</span>    <span class="object-color">11.32</span> ;
+                     <span class="predicate-color">hat_Breitengrad</span>    <span class="object-color">50.98</span> .
+    </textarea>
+</code>
+</pre>
+
+<ul class="legend">
+<li class="subject">Subjekt</li>
+<li class="predicate">Prädikat</li>
+<li class="object">Objekt</li>
 </ul>
 </div>
       <div class="step" >
@@ -84,59 +107,26 @@
 
 <pre>
 <code class="xml">
-&lt;correspDesc key="686" cs:source="#SOE20"&gt;
-    &lt;correspAction type="sent"&gt;
-        &lt;persName ref="http://d-nb.info/gnd/118540238"&gt;
+&lt;<span class="object-background">correspDesc</span> key="686" <span class="subject-background">cs:source="#SOE20"</span>&gt;
+    &lt;correspAction <span class="predicate-background">type="sent"</span>&gt;
+        &lt;<span class="object-background">persName</span> <span class="subject-background">ref="http://d-nb.info/gnd/118540238"</span>&gt;
             Johann Wolfgang von Goethe
         &lt;/persName&gt;
-        &lt;placeName ref="http://www.geonames.org/2812482"&gt;
+        &lt;<span class="object-background">placeName</span> <span class="subject-background">ref="http://www.geonames.org/2812482"&gt</span>;
             Weimar
         &lt;/placeName&gt;
-        &lt;date when="1793-12-05"&gt;5.12.1793&lt;/date&gt;
+        &lt;<span class="predicate-background">date</span> <span class="object-background">when="1793-12-05"</span>&gt;5.12.1793&lt;/date&gt;
     &lt;/correspAction&gt;
-    &lt;correspAction type="received"&gt;
-        &lt;persName ref="http://d-nb.info/gnd/118805193"&gt;
-            Soemmerring, Samuel Thomas
-        &lt;/persName&gt;
-        &lt;placeName ref="http://www.geonames.org/2874225"&gt;
-            Mainz
-        &lt;/placeName&gt;
-    &lt;/correspAction&gt;
+    [...]
 &lt;/correspDesc&gt;
 </code>
 </pre>
-</div>
-      <div class="step" >
-    
-<h2>Explizite Semantik (RDF)</h2>
 
-<form>
-    <textarea class="code" name="code" id="code1">
-    PREFIX v: &lt;http://beispiel.verb#&gt;
-
-    Goethe          v:ist               Person ;
-                    v:sendet            Brief .
-
-    Brief           v:datiert           1793 ;
-                    v:gesendet_aus      Weimar .
-
-    Weimar          v:ist               Stadt ;
-                    v:hat_Laengengrad   11.32 ;
-                    v:hat_Breitengrad   50.98 .
-
-    Soemmering      v:ist               Person ;
-                    v:empfaengt         Brief .
-
-    Brief           v:empfangen_in      Mainz .
-    </textarea>
-</form>
-
-<script>
-    var editor1 = CodeMirror.fromTextArea(document.getElementById("code1"), {
-        mode: "application/sparql-query",
-        matchBrackets: true
-    });
-</script>
+<ul class="legend">
+<li class="subject">Subjekt</li>
+<li class="predicate">Prädikat</li>
+<li class="object">Objekt</li>
+</ul>
 </div>
       <div class="step" >
     
@@ -180,25 +170,13 @@
 </div>
       <div class="step" >
     
-<h2>Eckdaten</h2>
-
-<ul>
-<li>Open Source (MIT License)</li>
-<li>Version 1.2 (Stable)</li>
-<li>Veröffentlicht auf GitHub <br/>(<a href="https://github.com/spatialhumanities/xtriples">https://github.com/spatialhumanities/xtriples</a>)</li>
-<li>Voll ausdokumentiert mit Beispielen <br/>(<a href="http://xtriples.spatialhumanities.de/documentation.html">http://xtriples.spatialhumanities.de/documentation.html</a>)</li>
-<li>eXist-db basierte App</li>
-</ul>
-</div>
-      <div class="step" >
-    
-<h2>Ziel des Webservice</h2>
+<h2>Ziele des Webservice</h2>
 
 <ol>
 <li>Gewinnung von RDF Statements aus beliebigem XML</li>
 <li>Basierend auf einer einfachen Konfiguration</li>
-<li>Einbeziehung beliebiger weiterer Ressourcen und Collections</li>
-<li>Flexible Rückgabeformate</li>
+<li>Einbeziehung beliebiger weiterer Ressourcen und Sammlungen</li>
+<li>Zahlreiche RDF-Serialisierungen als Rückgabeformate</li>
 <li>RESTful - Kommunikation vollständig über HTTP</li>
 </ol>
 </div>
@@ -213,35 +191,29 @@
 <h2>Extraktion von Aussagemustern</h2>
 
 <pre><code class="xml">
-#### XML ####
-&lt;correspAction type="sent"&gt;
-    &lt;persName ref="http://d-nb.info/gnd/118540238"&gt;
-        Johann Wolfgang von Goethe
-    &lt;/persName&gt;
-&lt;/correspAction&gt;
+AUSSAGEMUSTER
 
-#### Aussagemuster ###
 &lt;statement&gt;
-    &lt;subject>//tei:correspAction[@type='sent']/tei:persName/@ref&lt;/subject>
-    &lt;predicate prefix="rdf">type&lt;/predicate>
-    &lt;object type="uri" prefix="cd">Sender&lt;/object>
+  &lt;subject&gt;<span class="subject-background">//tei:correspAction[@type='sent']/tei:persName/@ref</span>&lt;/subject&gt;
+  &lt;predicate prefix="rdf"&gt;<span class="predicate-background">type</span>&lt;/predicate&gt;
+  &lt;object type="uri" prefix="cd"&gt;<span class="object-background">Sender</span>&lt;/object&gt;
 &lt;/statement&gt;
+________________________________________________________________________
 
-#### Ergebnis ####
-gndo:118540238 rdf:type cd:Sender .
+ERGEBNIS
+
+<span class="subject-color">gndo:118540238</span>   <span class="predicate-color">rdf:type</span>   <span class="object-color">cd:Sender</span> .
 </code></pre>
 </div>
       <div class="step" >
     
 <h2>Extraktionsergebnisse</h2>
 
-<p>Extraktion aller Korrespondenzdaten via API unter Einbeziehung der RDF Schnittstellen von GND und Geonames:</p>
-
 <table style="margin-top: 1em; border: 1px solid #000">
-<tr><td><strong>Statements gesamt</strong></td><td>56.990</td></tr>
 <tr><td><strong>correspSearch Ressourcen</strong></td><td>15.095</td></tr>
 <tr><td><strong>GND Ressourcen</strong></td><td>6.015</td></tr>
 <tr><td><strong>Geonames Ressourcen</strong></td><td>151</td></tr>
+<tr><td><strong>Statements gesamt</strong></td><td>56.990</td></tr>
 </table>
 </div>
       <div class="step" >
@@ -379,8 +351,8 @@ gndo:118540238 rdf:type cd:Sender .
 <h2>F I N I S</h2>
 
 <pre><code class="xml">
-Publikum        v:war           aufmerksam .
-Referenten      v:danken        Publikum .
+<span class="subject-color">Publikum</span>         <span class="predicate-color">war</span>            <span class="object-color">aufmerksam</span> .
+<span class="subject-color">Referenten</span>       <span class="predicate-color">danken</span>         <span class="object-color">Publikum</span> .
 </code></pre>
 </div>
       <div class="step" >
@@ -389,16 +361,16 @@ Referenten      v:danken        Publikum .
 
 <ul>
 <li><a href="https://github.com/impress/impress.js">Impress.js</a> (Präsentation)</li>
-<li><a href="https://github.com/egonSchiele/mdpress">mdpress</a> (Markdown für Impress)</li>
+<li><a href="https://github.com/egonSchiele/mdpress">mdpress</a> (Markdown für Impress.js)</li>
 <li><a href="http://dev.data2000.no/sgvizler/">sgvizler</a> (Visualisierungen für RDF)</li>
-<li><a href="http://maurizzzio.github.io/greuler/#/">greuler</a> (Graph Visualisierung)</li>
+<li><a href="http://maurizzzio.github.io/greuler/#/">greuler</a> (Graph Modellierung/Visualisierung)</li>
 <li><a href="https://highlightjs.org/">hightlight.js</a> (Syntax Highlighting)</li>
 <li><a href="https://codemirror.net/">CodeMirror</a> (SPARQL Syntax Highlighting)</li>
 </ul>
 
 <p>Quelldateien &amp; Daten: <a href="http://bit.ly/1OpViFw">http://bit.ly/1OpViFw</a></p>
 
-<p>Lizenz: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> (Torsten Schrade)</p>
+<p><a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> (Torsten Schrade)</p>
 
       </div>
     </div>
