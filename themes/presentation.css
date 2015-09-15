@@ -322,3 +322,31 @@ text {
 #geonames:before {
 	color: #4CAF50
 }
+
+.subject-background {
+	background: #81d4fa;
+}
+
+.predicate-background {
+	background: #ff8a65;
+}
+
+.object-background {
+	background: #a5d6a7;
+}
+
+.subject-color, .subject:before {
+	color: #0277bd;
+}
+
+.predicate-color, .predicate:before {
+	color: #ff6d00;
+}
+
+.object-color, .object:before {
+	color: #2e7d32;
+}
+
+.highlight-background {
+	background: #ffff00;
+}

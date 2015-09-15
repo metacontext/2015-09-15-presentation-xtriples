@@ -6,16 +6,26 @@ author: Torsten Schrade
 ### Workhshop der AG Elektronisches Publizieren | 15.09.2015
 # Digitale Briefeditionen im Semantic Web
 ## Der XTriples Webservice – <br/> Semantische Aussagen aus XML
-### __Torsten Schrade (Mainz) | <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg" alt="Twitter" width="30" /> [@digicademy](https://twitter.com/digicademy "Die Digitale Akademie aut Twitter") |  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Twitter" width="30" /> [digicademy](https://github.com/digicademy "Die Digitale Akademie aut GitHub")__
+### __Torsten Schrade (Mainz) | <img src="https://upload.wikimedia.org/wikipedia/en/9/9f/Twitter_bird_logo_2012.svg" alt="Twitter" width="30" /> [@digicademy](https://twitter.com/digicademy "Die Digitale Akademie aut Twitter") |  <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Twitter" width="30" /> [metacontext](https://github.com/digicademy "Die Digitale Akademie aut GitHub")__
 
 ---
 
 ## Gliederung
 
-1. Implizite und explizite Semantik
-2. Beispielmodellierung für &lt;correspDesc&gt;
-3. XTriples in 3 Minuten
-4. Visualisierungsbeispiele
+1. Semantische Fragestellungen
+2. Implizite und explizite Semantik (XML vs. RDF)
+3. Beispielmodellierung für &lt;correspDesc&gt;
+4. XTriples in 3 Minuten
+5. Visualisierungsbeispiele
+
+---
+
+## Semantische Fragestellungen
+
+* Wer korrespondiert mit wem?
+* Welche Briefe sind von Dichtern/Wissenschaftlern/etc.?
+* Wer verschickte zwischen welchen Städten Briefe?
+* Wo war Person X im Jahr Y?
 
 ---
 
@@ -23,15 +33,28 @@ author: Torsten Schrade
 
 ---
 
-## Semantische Fragestellungen
+## Explizite Semantik (RDF)
 
-* Wer korrespondiert mit wem?
-* Wieviele Briefe sind von Dichtern/Wissenschaftlern/etc.?
-* Welche Berufsgruppen schrieben an Carl Maria von Weber?
-* In welcher Stadt wurden die meisten Briefe verschickt/empfangen?
-* Zwischen welchen Städten wurden Briefe verschickt?
-* Wer war in welcher Stadt und wann?
-* Wo war Person X im Jahr Y?
+<pre>
+<code class="xml">
+	<span class="subject-color">Goethe</span> 			<span class="predicate-color">ist</span>				<span class="object-color">Person</span> ;
+					 <span class="predicate-color">sendet</span>			 <span class="object-color">Brief</span> .
+
+	<span class="subject-color">Brief</span>			<span class="predicate-color">datiert</span>			<span class="object-color">1793</span> ;
+					 <span class="predicate-color">gesendet_aus</span>		 <span class="object-color">Weimar</span> .
+
+	<span class="subject-color">Weimar</span>			<span class="predicate-color">ist</span>				<span class="object-color">Stadt</span> ;
+					 <span class="predicate-color">hat_Laengengrad</span>	 <span class="object-color">11.32</span> ;
+					 <span class="predicate-color">hat_Breitengrad</span>	 <span class="object-color">50.98</span> .
+	</textarea>
+</code>
+</pre>
+
+<ul class="legend">
+<li class="subject">Subjekt</li>
+<li class="predicate">Prädikat</li>
+<li class="object">Objekt</li>
+</ul>
 
 ---
 
@@ -39,59 +62,26 @@ author: Torsten Schrade
 
 <pre>
 <code class="xml">
-&lt;correspDesc key="686" cs:source="#SOE20"&gt;
-	&lt;correspAction type="sent"&gt;
-		&lt;persName ref="http://d-nb.info/gnd/118540238"&gt;
+&lt;<span class="object-background">correspDesc</span> key="686" <span class="subject-background">cs:source="#SOE20"</span>&gt;
+	&lt;correspAction <span class="predicate-background">type="sent"</span>&gt;
+		&lt;<span class="object-background">persName</span> <span class="subject-background">ref="http://d-nb.info/gnd/118540238"</span>&gt;
 			Johann Wolfgang von Goethe
 		&lt;/persName&gt;
-		&lt;placeName ref="http://www.geonames.org/2812482"&gt;
+		&lt;<span class="object-background">placeName</span> <span class="subject-background">ref="http://www.geonames.org/2812482"&gt</span>;
 			Weimar
 		&lt;/placeName&gt;
-		&lt;date when="1793-12-05"&gt;5.12.1793&lt;/date&gt;
+		&lt;<span class="predicate-background">date</span> <span class="object-background">when="1793-12-05"</span>&gt;5.12.1793&lt;/date&gt;
 	&lt;/correspAction&gt;
-	&lt;correspAction type="received"&gt;
-		&lt;persName ref="http://d-nb.info/gnd/118805193"&gt;
-			Soemmerring, Samuel Thomas
-		&lt;/persName&gt;
-		&lt;placeName ref="http://www.geonames.org/2874225"&gt;
-			Mainz
-		&lt;/placeName&gt;
-	&lt;/correspAction&gt;
+	[...]
 &lt;/correspDesc&gt;
 </code>
 </pre>
 
----
-
-## Explizite Semantik (RDF)
-
-<form>
-	<textarea class="code" name="code" id="code1">
-	PREFIX v: &lt;http://beispiel.verb#&gt;
-
-	Goethe 			v:ist				Person ;
-					v:sendet			Brief .
-
-	Brief			v:datiert			1793 ;
-					v:gesendet_aus		Weimar .
-
-	Weimar			v:ist				Stadt ;
-					v:hat_Laengengrad	11.32 ;
-					v:hat_Breitengrad	50.98 .
-
-	Soemmering		v:ist				Person ;
-					v:empfaengt			Brief .
-
-	Brief			v:empfangen_in		Mainz .
-	</textarea>
-</form>
-
-<script>
-	var editor1 = CodeMirror.fromTextArea(document.getElementById("code1"), {
-		mode: "application/sparql-query",
-		matchBrackets: true
-	});
-</script>
+<ul class="legend">
+<li class="subject">Subjekt</li>
+<li class="predicate">Prädikat</li>
+<li class="object">Objekt</li>
+</ul>
 
 ---
 
@@ -134,22 +124,12 @@ author: Torsten Schrade
 
 ---
 
-## Eckdaten
-
-* Open Source (MIT License)
-* Version 1.2 (Stable)
-* Veröffentlicht auf GitHub <br/>(https://github.com/spatialhumanities/xtriples)
-* Voll ausdokumentiert mit Beispielen <br/>(http://xtriples.spatialhumanities.de/documentation.html)
-* eXist-db basierte App
-
----
-
-## Ziel des Webservice
+## Ziele des Webservice
 
 1. Gewinnung von RDF Statements aus beliebigem XML
 2. Basierend auf einer einfachen Konfiguration
-3. Einbeziehung beliebiger weiterer Ressourcen und Collections
-4. Flexible Rückgabeformate
+3. Einbeziehung beliebiger weiterer Ressourcen und Sammlungen
+4. Zahlreiche RDF-Serialisierungen als Rückgabeformate
 5. RESTful - Kommunikation vollständig über HTTP
 
 ---
@@ -161,37 +141,30 @@ author: Torsten Schrade
 ---
 
 ## Extraktion von Aussagemustern
-
 <pre><code class="xml">
-#### XML ####
-&lt;correspAction type="sent"&gt;
-	&lt;persName ref="http://d-nb.info/gnd/118540238"&gt;
-		Johann Wolfgang von Goethe
-	&lt;/persName&gt;
-&lt;/correspAction&gt;
+AUSSAGEMUSTER
 
-#### Aussagemuster ###
 &lt;statement&gt;
-	&lt;subject>//tei:correspAction[@type='sent']/tei:persName/@ref&lt;/subject>
-	&lt;predicate prefix="rdf">type&lt;/predicate>
-	&lt;object type="uri" prefix="cd">Sender&lt;/object>
+  &lt;subject&gt;<span class="subject-background">//tei:correspAction[@type='sent']/tei:persName/@ref</span>&lt;/subject&gt;
+  &lt;predicate prefix="rdf"&gt;<span class="predicate-background">type</span>&lt;/predicate&gt;
+  &lt;object type="uri" prefix="cd"&gt;<span class="object-background">Sender</span>&lt;/object&gt;
 &lt;/statement&gt;
+________________________________________________________________________
 
-#### Ergebnis ####
-gndo:118540238 rdf:type cd:Sender .
+ERGEBNIS
+
+<span class="subject-color">gndo:118540238</span> 	<span class="predicate-color">rdf:type</span> 	<span class="object-color">cd:Sender</span> .
 </code></pre>
 
 ---
 
 ## Extraktionsergebnisse
 
-Extraktion aller Korrespondenzdaten via API unter Einbeziehung der RDF Schnittstellen von GND und Geonames:
-
 <table style="margin-top: 1em; border: 1px solid #000">
-<tr><td><strong>Statements gesamt</strong></td><td>56.990</td></tr>
 <tr><td><strong>correspSearch Ressourcen</strong></td><td>15.095</td></tr>
 <tr><td><strong>GND Ressourcen</strong></td><td>6.015</td></tr>
 <tr><td><strong>Geonames Ressourcen</strong></td><td>151</td></tr>
+<tr><td><strong>Statements gesamt</strong></td><td>56.990</td></tr>
 </table>
 
 ---
@@ -329,8 +302,8 @@ Extraktion aller Korrespondenzdaten via API unter Einbeziehung der RDF Schnittst
 ## F I N I S
 
 <pre><code class="xml">
-Publikum		v:war			aufmerksam .
-Referenten		v:danken		Publikum .
+<span class="subject-color">Publikum</span>			<span class="predicate-color">war</span>			<span class="object-color">aufmerksam</span> .
+<span class="subject-color">Referenten</span>		<span class="predicate-color">danken</span>			<span class="object-color">Publikum</span> .
 </code></pre>
 
 ---
@@ -338,12 +311,12 @@ Referenten		v:danken		Publikum .
 ## Stuff used
 
 * [Impress.js](https://github.com/impress/impress.js) (Präsentation)
-* [mdpress](https://github.com/egonSchiele/mdpress) (Markdown für Impress)
+* [mdpress](https://github.com/egonSchiele/mdpress) (Markdown für Impress.js)
 * [sgvizler](http://dev.data2000.no/sgvizler/) (Visualisierungen für RDF)
-* [greuler](http://maurizzzio.github.io/greuler/#/) (Graph Visualisierung)
+* [greuler](http://maurizzzio.github.io/greuler/#/) (Graph Modellierung/Visualisierung)
 * [hightlight.js](https://highlightjs.org/) (Syntax Highlighting)
 * [CodeMirror](https://codemirror.net/) (SPARQL Syntax Highlighting)
 
 Quelldateien &amp; Daten: http://bit.ly/1OpViFw
 
-Lizenz: [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) (Torsten Schrade)
+[CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) (Torsten Schrade)
